@@ -9,15 +9,17 @@ RUN apt-get -y update && apt-get -y install curl \
 	&& rvm reload && rvm requirements run  && rvm install 2.4.1  && rvm use 2.4.1 --default  \
 	&& gem install rails && gem install bundler \
 	&& apt-get -y install git && apt-get -y update && apt-get -y install curl  \
-	&& git clone https://github.com/Yougo007/CatAPI.git \
 	&& apt-get -y install libpq-dev \
 	&& apt-get install -y tzdata 
 	
 RUN mkdir /usr/app 
+
 WORKDIR /usr/app
 
-COPY Gemfile /usr/app/ 
-COPY Gemfile.lock /usr/app/ 
+RUN git init
+	
+RUN	git clone https://github.com/Yougo007/CatAPI.git && cd CatAPI 
+	
 RUN bundle install
 # Expose rails port
 EXPOSE 3000
