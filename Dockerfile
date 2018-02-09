@@ -14,13 +14,15 @@ RUN mkdir /usr/app
 
 WORKDIR /usr/app
 
+CMD echo 
+
 CMD /usr/app 
 
 RUN git init && git clone https://github.com/Yougo007/CatAPI.git 
 
 CMD cd CatAPI 
 	
-RUN bundle install
+#RUN bundle install
 # Expose rails port
 EXPOSE 3000
 
