@@ -25,9 +25,9 @@ gem install bundler
 #Install git to enable git clone functions	
 apt-get -y install git
 
-mkdir  /usr/local/etc/catapiproject
+#mkdir  /usr/local/etc/catapiproject
 
-cd /usr/local/etc/catapiproject
+#cd /usr/local/etc/catapiproject
 
 #Clone CatApi Git repo
 git clone https://github.com/Yougo007/CatAPI.git
@@ -35,7 +35,7 @@ git clone https://github.com/Yougo007/CatAPI.git
 #Setup rails
 apt-get -y install libpq-dev 
 
-cd /usr/local/etc/catapiproject/*
+#cd /usr/local/etc/catapiproject/*
 bundle install 
 
 apt-get install -y tzdata
