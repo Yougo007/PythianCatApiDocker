@@ -25,10 +25,9 @@ gem install bundler
 #Install git to enable git clone functions	
 apt-get -y install git
 
-cd /usr/local/etc/catapiproject
+mkdir  /usr/local/etc/catapiproject
 
-#Initialize Git repo
-git init
+cd /usr/local/etc/catapiproject
 
 #Clone CatApi Git repo
 git clone https://github.com/Yougo007/CatAPI.git
