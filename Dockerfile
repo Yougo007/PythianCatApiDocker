@@ -17,7 +17,7 @@ WORKDIR /usr/app
 
 RUN git init && git clone https://github.com/Yougo007/PythianCatApiDocker.git
 
-RUN cd Pyt* && bundle install
+RUN cd Cat* && bundle install
 # Expose rails port
 
 CMD rails server
