@@ -26,17 +26,19 @@ CMD cp ~/PythianCatApiDocker/*  ~/CatAPI/
 
 #CMD cd Cat*
 
+WORKDIR /usr/app/CatAPI
+
 #Start Bundle
 CMD bundle install
 
 # Start & Expose rails port
-CMD rails server
+#CMD rails server
 
 #Expose Rails port
 #EXPOSE 3000
 
-WORKDIR /usr/app/CatAPI
 
-CMD ["rails", "server", "-b", "0.0.0.0"]
+
+#CMD ["rails", "server", "-b", "0.0.0.0"]
 
 #COPY . .
