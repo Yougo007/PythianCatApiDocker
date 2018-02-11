@@ -15,9 +15,9 @@ RUN mkdir /usr/app
 
 WORKDIR /usr/app
 
-RUN git init && git clone https://github.com/Yougo007/CatAPI.git 
+RUN git init && git clone https://github.com/Yougo007/PythianCatApiDocker.git
 
-RUN cd Cat* && bundle install
+RUN cd Pyt* && bundle install
 # Expose rails port
 
 CMD rails server
