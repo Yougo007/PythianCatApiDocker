@@ -5,12 +5,9 @@ MAINTAINER udokporo_ugochukwu@yahoo.co.uk
 #Creat and set working directory
 RUN apt-get -y update && apt-get -y install curl \
 	&& curl -sSL https://rvm.io/mpapis.asc | gpg --import - \
-	&& curl -sSL https://get.rvm.io | bash -s stable \
-CMD source /etc/profile.d/rvm.sh 
-CMD rvm reload 
-CMD rvm requirements run 
-CMD rvm install 2.4.1
-CMD rvm use 2.4.1 --default
+	&& curl -sSL https://get.rvm.io | bash -s stable 
+	
+RUN source /etc/profile.d/rvm.sh && rvm reload && rvm requirements run && rvm install 2.4.1 && rvm use 2.4.1 --default
   
 RUN	gem install rails && gem install bundler \
 	&& apt-get -y install git \
