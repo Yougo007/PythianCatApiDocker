@@ -6,10 +6,16 @@ MAINTAINER udokporo_ugochukwu@yahoo.co.uk
 RUN apt-get -y update && apt-get -y install curl \
 	&& curl -sSL https://rvm.io/mpapis.asc | gpg --import - \
 	&& curl -sSL https://get.rvm.io | bash -s stable \
-	&& /bin/bash source /etc/profile.d/rvm.sh \
-	&& rvm reload && rvm requirements run  && rvm install 2.4.1  && rvm use 2.4.1 --default  \
-	&& gem install rails && gem install bundler \
-	&& apt-get -y install git && apt-get -y install libpq-dev && apt-get install -y tzdata 
+CMD source /etc/profile.d/rvm.sh 
+CMD rvm reload 
+CMD rvm requirements run 
+CMD rvm install 2.4.1
+CMD rvm use 2.4.1 --default
+  
+RUN	gem install rails && gem install bundler \
+	&& apt-get -y install git \
+	&& apt-get -y install libpq-dev \
+	&& apt-get install -y tzdata 
 	
 RUN mkdir /usr/app 
 
@@ -17,7 +23,8 @@ WORKDIR /usr/app
 
 RUN git init && git clone https://github.com/Yougo007/PythianCatApiDocker.git
 
-RUN cd Cat* && bundle install
+CMD cd Cat* 
+CMD bundle install
 # Expose rails port
 
 CMD rails server
