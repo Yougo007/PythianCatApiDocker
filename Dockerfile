@@ -30,4 +30,5 @@ CMD bundle install
 # Start & Expose rails port
 CMD rails server
 
+#Expose Rails port
 EXPOSE 3000
