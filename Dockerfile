@@ -15,15 +15,9 @@ RUN mkdir /usr/app
 
 WORKDIR /usr/app
 
-CMD cd /usr/app 
-
 RUN git init && git clone https://github.com/Yougo007/CatAPI.git 
 
-WORKDIR /usr/app/CatAPI 
-
-cd Cat*
-	
-RUN bundle install
+RUN cd Cat* && bundle install
 # Expose rails port
 
 CMD rails server
