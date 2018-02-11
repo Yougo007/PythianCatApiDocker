@@ -28,7 +28,9 @@ CMD cd Cat*
 CMD bundle install
 
 # Start & Expose rails port
-CMD rails server
+#CMD rails server
 
 #Expose Rails port
 EXPOSE 3000
+
+CMD ["rails", "server", "-b", "0.0.0.0"]
