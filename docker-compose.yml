@@ -1,13 +1,18 @@
-version: '3'
+version: '2'
 services:
-  db:
-    image: postgres
   web:
     build: .
-    #command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    command: bundle exec rails s -b 0.0.0.0
     volumes:
-      - .:/myapp
+      - .:/app
     ports:
       - "3000:3000"
     depends_on:
-      - db
+      - postgres
+    environment:
+      DATABASE_URL: postgres://catapi@postgres/catapi
+  postgres:
+    image: postgres:9.6.2-alpine
+    environment:
+      POSTGRES_USER: catapi
+      POSTGRES_DB: catapi
