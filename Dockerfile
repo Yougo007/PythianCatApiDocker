@@ -33,6 +33,8 @@ CMD bundle install
 #Expose Rails port
 #EXPOSE 3000
 
-#CMD ["rails", "server", "-b", "0.0.0.0"]
+WORKDIR /usr/app/CatAPI
 
-COPY . .
+CMD ["rails", "server", "-b", "0.0.0.0"]
+
+#COPY . .
