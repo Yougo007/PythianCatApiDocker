@@ -16,29 +16,11 @@ RUN     apt-get -y install git \
         && apt-get -y install libpq-dev \
         && apt-get install -y tzdata
 
-RUN mkdir /usr/app
+RUN mkdir /app
+WORKDIR /app
 
-WORKDIR /usr/app
+COPY Gemfile ./Gemfile
+COPY Gemfile.lock ./Gemfile.lock
 
-RUN git init && git clone https://github.com/Yougo007/CatAPI.git
-
-CMD cp ~/PythianCatApiDocker/*  ~/CatAPI/
-
-#CMD cd Cat*
-
-WORKDIR /usr/app/CatAPI
-
-#Start Bundle
-CMD bundle install
-
-# Start & Expose rails port
-#CMD rails server
-
-#Expose Rails port
-#EXPOSE 3000
-
-
-
-#CMD ["rails", "server", "-b", "0.0.0.0"]
-
-#COPY . .
+RUN bundle install -j 20
+COPY . .
